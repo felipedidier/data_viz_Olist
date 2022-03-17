@@ -107,4 +107,35 @@ Para completar a composição das informações contidas no painel principal, o 
 
 ![image](https://user-images.githubusercontent.com/47615255/158833367-634f5bb1-db9e-4442-867c-f8ef77247e2d.png)
 
+No painel de produtos é possível ver a lista de todas as categorias e a participação de cada uma no quesito vendas.
 
+![image](https://user-images.githubusercontent.com/47615255/158837295-77778948-f8ad-4f38-a7ea-d5fda6f58baf.png)
+
+Indo ainda mais no detalhe, é possível visualizar a venda da categoria ao longo do ano e identificar os meses que se tem maior venda. O dashboard lista inicialmente as duas categorias com maior participação de vendas, mas é possível selecionar a categoria desejada.
+
+![image](https://user-images.githubusercontent.com/47615255/158837568-7a75ee3e-dc57-473f-ac36-68663fa38045.png)
+
+Somando a análise acima, também é possível analisar a quantidade de produtos vendidos por categoria ao longo dos meses. Essa análise é interessante para identificar se o quantitativo total de vendas da categoria se dá pelo elevado preço dos produtos ou pela quantidade vendida.
+
+![image](https://user-images.githubusercontent.com/47615255/158838348-a2aba92d-5a31-4097-9ef6-4bf50c6289eb.png)
+
+#### Painel de reviews
+
+![image](https://user-images.githubusercontent.com/47615255/158838893-3e332184-057d-4049-ac9e-0ef1ffe2f0c7.png)
+
+Na análise de reviews, conseguimos verificar todos os questionamentos gerados pelo review score.
+A partir da análise do mapa, é possível visualizar, pela grandeza dos circulos, quais os estados que tiveram maiores e menores notas no review. Por exemplo o Amapá é o estado que apresenta o menor score.
+
+![image](https://user-images.githubusercontent.com/47615255/158838913-244ba08e-b4ec-4ba1-8fb0-ca6cae1edfb8.png)
+
+Para as informações abaixo, foram agrupados por review score a quantidade de pedidos que foram avaliados. Dessa forma, é possível saber quantas avaliações foram destinadas para cada nota. Sabe-se também que 23% das avaliações são menores que 4.
+
+![image](https://user-images.githubusercontent.com/47615255/158839961-3a2f63bf-3eb6-406c-bda5-b8545027cf1d.png)
+
+Por fim, foi realizada uma análise exploratória para identificar se havia correlação entre o aumento das vendas e o review negativo. Esse indicador poderia sinalizar a falta de estrutura de atendimento ou entregas quando a demanda aumentava. Aparentemente, pelo gráfico, nenhuma conclusão pode ser tirada, apesar de 2017 chamar a atenção que ao aumentar as vendas no final do ano, o review score diminuiu.
+
+![image](https://user-images.githubusercontent.com/47615255/158840678-1f182c6a-d081-40fa-91df-d1952415e4f2.png)
+
+## Conclusão
+
+O dashboard é bastante intuitivo para conseguir guiar o negócio em futuras estratégias de marketing, melhoria e logística, uma vez que conseguem ser extraidas informações interessantes. Algumas melhorias visíveis no dashboard são na profundidade de algumas análises, como por exemplo dos reviews. É muito oportuno abranger a análise dos reviews e conseguir analisar diretamente os textos dos comentários. Da mesma forma, é interessante também dar uma aprofundada maior na análise das categorias, visto que há muita coisa que pode ser explorada.
