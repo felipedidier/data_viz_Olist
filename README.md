@@ -121,7 +121,7 @@ Somando a análise acima, também é possível analisar a quantidade de produtos
 
 #### Painel de reviews
 
-![image](https://user-images.githubusercontent.com/47615255/158833367-634f5bb1-db9e-4442-867c-f8ef77247e2d.png)
+![image](https://user-images.githubusercontent.com/47615255/158842860-dc0862b3-78a3-44e5-8666-057ba8c5af35.png)
 
 Na análise de reviews, conseguimos verificar todos os questionamentos gerados pelo review score.
 A partir da análise do mapa, é possível visualizar, pela grandeza dos circulos, quais os estados que tiveram maiores e menores notas no review. Por exemplo o Amapá é o estado que apresenta o menor score.
