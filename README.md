@@ -81,7 +81,7 @@ O dashboard foi construído importando todos arquivos relacionais para a base de
 
 Como pode ser visto no painel principal abaixo, os principais indicadores de vendas estão listados acima. Essa visualização em formato de cartão foi escolhida pois permite uma captação mais rápida das informações. Nesses cartões, foram inseridas as informações de ticket médio, total de vendas e frete e a média de reviews score. Aplicando-se os filtros, fica fácil de visualizar que em 2018 houveram as melhores vendas e melhores reviews, comparando com 2016 e 2017. O que nos pode inferir que a satisfação do cliente está subindo proporcionalmente as vendas de ano em ano.
 
-![image](https://user-images.githubusercontent.com/47615255/158836076-bbd5c32c-a39c-477f-aa73-165e65c8e1e4.png)
+![image](https://user-images.githubusercontent.com/47615255/158836975-9043bee7-c114-40a4-abe3-21a27f175c24.png)
 
 Para se ter uma visualização mais dinâmica do ticket médio por estado, utilizou-se a visualização em mapa de formas, que permite analisar a partir da saturação de cores qual o estado com maior ticket médio e com isso saber qual o estado que possui os clientes dispostos a gastar mais por compra. Analisando o mapa, consegue-se concluir que Bahia e Pernambuco possuem os maiores tickets médios do país.
 
