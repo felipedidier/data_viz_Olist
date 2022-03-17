@@ -70,6 +70,7 @@ ROUND(SUM(v.vendas) OVER (PARTITION BY 1 ORDER BY v.vendas DESC), 2) as "vendas_
 FROM venda as v
 ```
 Saída:
+
 ![image](https://user-images.githubusercontent.com/47615255/158846707-3c5fa771-7e22-46fd-8b87-0eecff93c7a9.png)
 
 
@@ -93,6 +94,7 @@ ROUND(SUM(v.vendas) OVER (PARTITION BY 1 ORDER BY v.vendas DESC), 2) as "vendas_
 FROM venda_p as v
 ```
 Saída:
+
 ![image](https://user-images.githubusercontent.com/47615255/158846838-31ab27dc-6ffb-4d0f-9a98-5a2ac834b048.png)
 
 - Novos consumidores por mês/dia geral/estados
@@ -142,6 +144,7 @@ END AS mes
 FROM datacomp d
 ```
 Saída:
+
 ![image](https://user-images.githubusercontent.com/47615255/158846887-48adeb03-073f-461c-a967-9210d673c453.png)
 
 - Vendas totais
@@ -157,6 +160,7 @@ GROUP BY 1
 ORDER BY 2 DESC
 ```
 Saída:
+
 ![image](https://user-images.githubusercontent.com/47615255/158846919-c8553486-b157-4e69-b74a-08587cb64f88.png)
 
 - Análise dos dados de order_status
@@ -181,6 +185,7 @@ GROUP BY 1, 2, 3
 ORDER BY 2, 3, 4 DESC
 ```
 Saída:
+
 ![image](https://user-images.githubusercontent.com/47615255/158846947-5daae1ce-ae00-4421-8ced-511371561c38.png)
 
 - Correlação de venda total por quantidade total de produto
@@ -197,6 +202,7 @@ GROUP BY 1
 order by 2 DESC
 ```
 Saída:
+
 ![image](https://user-images.githubusercontent.com/47615255/158846971-21bc5882-aef2-4c45-9c95-af6464e38c07.png)
 
 - Tempo médio da entrega móvel
@@ -224,6 +230,7 @@ FROM data d
 GROUP BY 1, 2, 3
 ```
 Saída:
+
 ![image](https://user-images.githubusercontent.com/47615255/158847001-32a6eae0-4e94-4ec5-bde9-907273b8d61e.png)
 
 
