@@ -47,8 +47,19 @@ As perguntas são:
 
 ### Queries
 
-O primeiro passo para compreender que o dataset consegue fornecer todas as respostas para as perguntas da Problemática é investigarmos e criarmos queries no SQL para validar se os dados conseguem de fato ser gerados.
+O primeiro passo para compreender que o dataset consegue fornecer é investigar e criar queries no SQL para validar se os dados conseguem de fato ser gerados. A partir desse princípio, foram exploradas várias queries que geraram dados interessantes pelo DBrowser.
 
+```query
+SELECT * FROM csd
+```
+
+```sql
+SELECT * FROM csd
+```
+
+```sqlite
+SELECT * FROM csd
+```
 
 ### Dashboard
 
