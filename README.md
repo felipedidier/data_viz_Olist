@@ -5,7 +5,7 @@ Projeto final do curso de Data Science da [Awari](https://awari.com.br/). O obje
 
 Será criado um dashboard do **Comitê de Vendas da Olist para decisões do negócio**.
 
-> Você pode acessar o dashboard [clicando aqui](AJUSTAR AQUI).
+> Você pode acessar o dashboard [clicando aqui](https://drive.google.com/drive/folders/1_30bc74QqBo69UxMP3jLgPhZDMl1_aYJ?usp=sharing).
 
 ## Tópicos
 
