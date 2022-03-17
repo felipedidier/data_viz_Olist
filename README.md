@@ -69,7 +69,7 @@ Para o painel principal, foi construído o mockup abaixo. Essa estrutura foi pen
 
 Nos outros dois painéis a mesma estrutura base do mockup será aplicada, tendo aplicações de gráficos e tabelas distintas.
 
-![mockup2](![mockup1](https://github.com/felipedidier/data_viz_notas_Enem/blob/main/image/mockup2.png?raw=true)
+![image](https://user-images.githubusercontent.com/47615255/158843062-32262664-e515-4d21-be80-5f2d148b1d3e.png)
 
 ### Construção do Dashboard
 
