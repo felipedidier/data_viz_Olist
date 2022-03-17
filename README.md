@@ -49,17 +49,147 @@ As perguntas são:
 
 O primeiro passo para compreender que o dataset consegue fornecer é investigar e criar queries no SQL para validar se os dados conseguem de fato ser gerados. A partir desse princípio, foram exploradas várias queries que geraram dados interessantes pelo DBrowser.
 
-```query
-SELECT * FROM csd
+```sql
+--1 Venda por categoria (rankeando as maiores)
+WITH venda AS (
+SELECT
+pr.product_category_name as categoria,
+SUM(p.payment_value) as vendas
+FROM olist_order_payments_dataset p
+JOIN olist_order_items_dataset i ON p.order_id = i.order_id
+JOIN olist_products_dataset pr ON i.product_id = pr.product_id
+GROUP BY 1
+ORDER BY 2 DESC)
+SELECT
+v.categoria,
+ROUND(v.vendas,2) as "vendas",
+ROUND(SUM(v.vendas) OVER (PARTITION BY 1 ORDER BY v.vendas DESC), 2) as "vendas_acum"
+FROM venda as v
 ```
 
 ```sql
-SELECT * FROM csd
+--2 Venda por produto (rankeando as maiores)
+WITH venda_p AS (
+SELECT
+i.product_id as produto,
+SUM(p.payment_value) as vendas
+FROM olist_order_payments_dataset p
+JOIN olist_order_items_dataset i ON p.order_id = i.order_id
+GROUP BY 1
+ORDER BY 2 DESC)
+SELECT
+v.produto,
+ROUND(v.vendas,2) as "vendas",
+ROUND(SUM(v.vendas) OVER (PARTITION BY 1 ORDER BY v.vendas DESC), 2) as "vendas_acum"
+FROM venda_p as v
 ```
 
-```sqlite
-SELECT * FROM csd
+```sql
+--3 Novos consumidores por mês/dia geral/estados
+WITH datacomp AS (
+SELECT
+DISTINCT c.customer_unique_id "clientes",
+c.customer_state "estado",
+julianday(o.order_purchase_timestamp) "data_Compra",
+o.order_purchase_timestamp "data"
+FROM
+olist_customers_dataset c
+LEFT JOIN
+olist_orders_dataset o ON c.customer_id = o.customer_id
+LEFT JOIN
+olist_order_payments_dataset p ON o.order_id = p.order_id
+GROUP BY 1
+ORDER BY 3 ASC
+)
+SELECT
+d.clientes,
+d.estado,
+CASE
+WHEN SUBSTR(d.data, 0, 5) == "2016" THEN 2016
+WHEN SUBSTR(d.data, 0, 5) == "2017" THEN 2017
+WHEN SUBSTR(d.data, 0, 5) == "2018" THEN 2018
+ELSE NULL
+END AS ano,
+CASE
+WHEN SUBSTR(d.data, 6, 2) == "01" THEN 1
+WHEN SUBSTR(d.data, 6, 2) == "02" THEN 2
+WHEN SUBSTR(d.data, 6, 2) == "03" THEN 3
+WHEN SUBSTR(d.data, 6, 2) == "04" THEN 4
+WHEN SUBSTR(d.data, 6, 2) == "05" THEN 5
+WHEN SUBSTR(d.data, 6, 2) == "06" THEN 6
+WHEN SUBSTR(d.data, 6, 2) == "07" THEN 7
+WHEN SUBSTR(d.data, 6, 2) == "08" THEN 8
+WHEN SUBSTR(d.data, 6, 2) == "09" THEN 9
+WHEN SUBSTR(d.data, 6, 2) == "10" THEN 10
+WHEN SUBSTR(d.data, 6, 2) == "11" THEN 11
+WHEN SUBSTR(d.data, 6, 2) == "12" THEN 12
+ELSE NULL
+END AS mes
+FROM datacomp d
 ```
+
+```sql
+--Vendas totais
+SELECT
+p.payment_type "forma_pagamento",
+ROUND(SUM(p.payment_value),2) "valor"
+FROM olist_order_payments_dataset p
+GROUP BY 1
+ORDER BY 2 DESC
+```
+
+```sql
+--Análise dos dados de order_status
+WITH status AS(
+SELECT
+o.order_status "status",
+o.order_purchase_timestamp "data",
+CAST(SUBSTR(o.order_purchase_timestamp, 0, 5) AS INTEGER) AS "ano",
+CAST(SUBSTR(o.order_purchase_timestamp, 6, 2) AS INTEGER) AS "mes"
+FROM olist_orders_dataset o
+) SELECT
+s.status,
+s.ano,
+s.mes,
+COUNT(*) as "quantidade"
+FROM status s
+GROUP BY 1, 2, 3
+ORDER BY 2, 3, 4 DESC
+```
+
+```sql
+--Correlação de venda total por quantidade total de produto
+SELECT
+i.product_id,
+COUNT(*),
+ROUND(SUM(i.price),2)
+FROM olist_order_items_dataset i
+GROUP BY 1
+order by 2 DESC
+```
+
+```sql
+-- Tempo médio da entrega móvel
+WITH data as (
+SELECT
+  o.order_id AS "pedido",
+  CAST(SUBSTR(o.order_purchase_timestamp, 0, 5) AS INTEGER) as "ano",
+  CAST(SUBSTR(o.order_purchase_timestamp, 6, 2) AS INTEGER) as "mes",
+  CAST(SUBSTR(o.order_purchase_timestamp, 9, 2) AS INTEGER) as "dia",
+  JULIANDAY(o.order_delivered_carrier_date) - JULIANDAY(o.order_purchase_timestamp) AS "temp_post"
+FROM olist_orders_dataset AS o
+WHERE o.order_delivered_customer_date IS NOT NULL --filtro para retirar todos os pedidos que ainda não tiveram entrega realizada
+GROUP BY 1
+ORDER BY 2, 3, 4
+) SELECT
+d.ano,
+d.mes,
+d.dia,
+ROUND(AVG(d.temp_post),2) as temp_post
+FROM data d
+GROUP BY 1, 2, 3
+```
+
 
 ### Dashboard
 
